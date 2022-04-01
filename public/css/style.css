@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 36px;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+header {
+    padding: 30px;
+    height: 120px;
+    background-color: rgb(240, 66, 66);
+}
+
+main {
+    padding: 30px;
+    flex: 1 1 auto;
+    background-color: rgb(182, 175, 167);
+}
+
+footer {
+    padding: 30px;
+    height: 100px;
+    background-color: rgb(2, 2, 2);
+}

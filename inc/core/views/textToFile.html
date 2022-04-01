@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: #F5f5f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bolder;
+        }
+
+        h1 {
+            letter-spacing: 1.4px;
+            bottom: 45px;
+            font-size: 74px;
+            position: relative;
+            color: #2e0e02;
+            padding-bottom: 10px;
+        }
+
+        input {
+            transition: background-color 1s;
+            border-radius: 8px;
+            font-size: inherit;
+            color: white;
+            outline: none;
+            padding: 10px;
+            text-align: center;
+            border: unset;
+            background-color: #205c81;
+            margin-top: 10px;
+            width: fit-content;
+            align-self: flex-end;
+        }
+
+        #inputForm {
+            display: flex;
+            flex-direction: column;
+            max-width: 70%;
+            height: 70%;
+        }
+
+        input[type="submit"]:hover {
+            cursor: pointer;
+            background-color: rgb(243, 60, 60);
+        }
+
+        textarea {
+            cursor: pointer;
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            color: white;
+            -webkit-text-stroke: 2px rgb(187, 41, 41);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 72px;
+            border: none;
+            background-color: #517a9421;
+            caret-color: #b30c06;
+        }
+
+        textarea:focus-visible {
+            outline: none;
+        }
+    </style>
+    <title>Text into a file...</title>
+</head>
+
+<body>
+    <h1>Text into a file...</h1>
+    <form id="inputForm">
+        <textarea id="textareaForm" name="data" cols="80" rows="15"></textarea>
+        <input type="submit" value="Завантажити файл">
+    </form>
+    <a href="javascript:eval(document.body.style.transform='rotate(70deg)')">link2_____</a>
+    <script>
+        inputForm.onsubmit = async function (e) {
+            e.preventDefault()
+            let dataForm = new FormData(inputForm)
+            let blob = new Blob([dataForm.get('data')], { type: 'text/plain' })
+            if(!blob.size) return
+            let link = document.createElement('a')
+            link.download = `input_${new Date()}.txt`
+            link.href = URL.createObjectURL(blob)
+            link.click()
+            URL.revokeObjectURL(link.href);
+        }
+    </script>
+</body>
+
+</html>
